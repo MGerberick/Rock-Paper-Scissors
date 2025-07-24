@@ -16,7 +16,7 @@ function playGame () {
     let tieScore = 0
 
     function getCurrentScores() {
-        return "The current score is, Human: " + humanScore + ", Computer: " + computerScore + ", Ties: " + tieScore + "."
+        return "The current score is; Human: " + humanScore + ", Computer: " + computerScore + ", Ties: " + tieScore + "."
     }
 
     function playRound () {
@@ -68,9 +68,9 @@ function playGame () {
             console.log(getCurrentScores())
         }
         
-        if (humanScore > computerScore) {return "Congratulations, you win the game! " + getCurrentScores().replace("current","overall")}
-        else if (computerScore > humanScore) {return "Sorry, you lose the game! " + getCurrentScores().replace("current","overall")}
-        else {return "A tie game, how disappointing. " + getCurrentScores().replace("current","overall")}
+        if (humanScore > computerScore) {return "Congratulations, you win the game! " + getCurrentScores().replace("current","")}
+        else if (computerScore > humanScore) {return "Sorry, you lose the game! " + getCurrentScores().replace("current","")}
+        else {return "A tie game, how disappointing. " + getCurrentScores().replace("current","")}
     }
 
 const playGameBtn = document.getElementById("playGameID");
