@@ -1,3 +1,4 @@
+
 function getComputerChoice () {
     if ((Math.random()) < (1/3)) {return "rock"}
     else if ((Math.random()) < (2/3)) {return "paper"}
@@ -72,4 +73,15 @@ function playGame () {
         else {return "A tie game, how disappointing. " + getCurrentScores().replace("current","overall")}
     }
 
-console.log(playGame())
+const playGameBtn = document.getElementById("playGameID");
+
+playGameBtn.addEventListener ("click", function() {
+    let outcome = playGame();
+
+    console.log(outcome);
+    const result = document.getElementById("gameResult");
+    result.textContent = "Game Result: " + outcome;
+});
+
+
+
