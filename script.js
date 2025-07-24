@@ -14,6 +14,10 @@ function playGame () {
     let humanScore = 0
     let tieScore = 0
 
+    function getCurrentScores() {
+        return "The current score is, Human: " + humanScore + ", Computer: " + computerScore + ", Ties: " + tieScore + "."
+    }
+
     function playRound () {
         let computerChoice = getComputerChoice()
 
@@ -55,18 +59,17 @@ function playGame () {
             default:
                 tieScore++
                 console.log("A tie. Human choice: " + humanChoice + ". Computer choice: " + computerChoice + ". How disappointing.")
-                break;
             }
         }
     
         for (let i = 1; i < 6; i++) {
             playRound()
-            console.log("The current score is human " + humanScore + ", computer score " + computerScore + ", ties " + tieScore)
+            console.log(getCurrentScores())
         }
         
-        if (humanScore > computerScore) {return "Congratulations, you win!"}
-        else if (computerScore > humanScore) {return "Sorry, you lose!"}
-        else {return "A draw. How disappointing."}
+        if (humanScore > computerScore) {return "Congratulations, you win the game! " + getCurrentScores().replace("current","overall")}
+        else if (computerScore > humanScore) {return "Sorry, you lose the game! " + getCurrentScores().replace("current","overall")}
+        else {return "A tie game, how disappointing. " + getCurrentScores().replace("current","overall")}
     }
 
 console.log(playGame())
