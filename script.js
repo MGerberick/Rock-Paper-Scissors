@@ -51,14 +51,15 @@ function playGame () {
             }
         }
     
-        for (let i = 1; i < 6; i++) {
-            playRound()
-            console.log(getCurrentScores())
-        }
+    for (let i = 1; i < 6; i++) {
+        playRound()
+        console.log(getCurrentScores())
+    }
         
-        if (humanScore > computerScore) {return "Congratulations, you win the game! " + getCurrentScores().replace("current","")}
-        else if (computerScore > humanScore) {return "Sorry, you lose the game! " + getCurrentScores().replace("current","")}
-        else {return "A tie game, how disappointing. " + getCurrentScores().replace("current","")}
+    if (humanScore > computerScore) {return "Congratulations, you win the game! " + getCurrentScores().replace("current","")}
+    else if (computerScore > humanScore) {return "Sorry, you lose the game! " + getCurrentScores().replace("current","")}
+    else {return "A tie game, how disappointing. " + getCurrentScores().replace("current","")}
+    
     }
 
 const playGameBtn = document.getElementById("playGameID");
