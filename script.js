@@ -1,7 +1,7 @@
 
 function getComputerChoice () {
-    if ((Math.random()) < (1/3)) {return "rock"}
-    else if ((Math.random()) < (2/3)) {return "paper"}
+    if (Math.floor(Math.random() * 3) + 1 === 3) {return "rock"}
+    else if (Math.floor(Math.random() * 3) + 1 === 2) {return "paper"}
     else {return "scissors"}
 }
 
@@ -34,28 +34,16 @@ function playGame () {
                 console.log("You lose. Your choice '" + humanChoice + "' is an invalid option! Choices carry consequences.")
                 break;
             case (humanChoice == "rock" && computerChoice == "scissors"):
+            case (humanChoice == "paper" && computerChoice == "rock"):
+            case (humanChoice == "scissors" && computerChoice == "paper"):
                 humanScore++
                 console.log("You win, " + humanChoice + " beats " + computerChoice + "!")
                 break;
             case (humanChoice == "rock" && computerChoice == "paper"):
-                computerScore++
-                console.log("You lose, " + computerChoice + " beats " + humanChoice + "!")
-                break;
-            case (humanChoice == "paper" && computerChoice == "rock"):
-                humanScore++
-                console.log("You win, " + humanChoice + " beats " + computerChoice + "!")
-                break;
             case (humanChoice == "paper" && computerChoice == "scissors"):
-                computerScore++
-                console.log("You lose, " + computerChoice + " beats " + humanChoice + "!")
-                break;
             case (humanChoice == "scissors" && computerChoice == "rock"):
                 computerScore++
                 console.log("You lose, " + computerChoice + " beats " + humanChoice + "!")
-                break;
-            case (humanChoice == "scissors" && computerChoice == "paper"):
-                humanScore++
-                console.log("You win, " + humanChoice + " beats " + computerChoice + "!")
                 break;
             default:
                 tieScore++
@@ -76,7 +64,7 @@ function playGame () {
 const playGameBtn = document.getElementById("playGameID");
 
 playGameBtn.addEventListener ("click", function() {
-    let outcome = playGame();
+    const outcome = playGame();
 
     console.log(outcome);
     const result = document.getElementById("gameResult");
